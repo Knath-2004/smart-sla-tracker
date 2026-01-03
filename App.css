@@ -1,0 +1,470 @@
+/* ================= RESET ================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at top left, #0a0f1f, #020617);
+  color: #e5e7eb;
+}
+
+/* ================= LAYOUT ================= */
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 260px;
+  padding: 28px 22px;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 58, 138, 0.9),
+    rgba(2, 6, 23, 0.95)
+  );
+  backdrop-filter: blur(18px);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 8px 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.sidebar h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.sidebar p {
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.content {
+  flex: 1;
+  padding: 48px;
+  overflow-y: auto;
+}
+
+/* ================= CARDS ================= */
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  max-width: 420px;
+  margin: 80px auto;
+  padding: 32px;
+  border-radius: 22px;
+  backdrop-filter: blur(22px);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* ================= PANELS ================= */
+
+.panel {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.03)
+  );
+  border-radius: 24px;
+  padding: 32px;
+  margin-bottom: 32px;
+  backdrop-filter: blur(24px);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.panel h3 {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ================= ANALYTICS ================= */
+
+.analytics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.analytics div {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 22px;
+  border-radius: 18px;
+  font-size: 15px;
+}
+
+/* ================= FORMS ================= */
+
+.form-grid {
+  display: grid;
+  gap: 16px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+input::placeholder {
+  color: rgba(229, 231, 235, 0.55);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.25);
+}
+
+/* ================= BUTTONS ================= */
+
+button {
+  padding: 13px 18px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+}
+
+button.secondary {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+button.logout {
+  background: linear-gradient(135deg, #ef4444, #991b1b);
+}
+
+/* ================= TICKETS ================= */
+
+.ticket-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 20px 40px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.25s;
+}
+
+.ticket-row:hover {
+  transform: translateY(-2px);
+}
+
+.ticket-title {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.ticket-meta {
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* ================= SLA BAR ================= */
+
+.sla-bar {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.sla-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #3b82f6);
+  transition: width 0.6s ease;
+}
+
+.sla-fill.warn {
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+}
+
+.sla-fill.danger {
+  background: linear-gradient(90deg, #ef4444, #991b1b);
+}
+
+/* ================= STATUS ================= */
+
+.status {
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status.open {
+  background: rgba(59, 130, 246, 0.25);
+  color: #bfdbfe;
+}
+
+.status.in_progress {
+  background: rgba(234, 179, 8, 0.25);
+  color: #fde68a;
+}
+
+.status.resolved {
+  background: rgba(34, 197, 94, 0.25);
+  color: #bbf7d0;
+}
+
+.status.escalated {
+  background: rgba(239, 68, 68, 0.3);
+  color: #fecaca;
+}
+
+/* ================= BREACH GLOW ================= */
+
+.breach-warning {
+  animation: glow 1.8s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.35);
+  }
+  to {
+    box-shadow: 0 0 36px rgba(239, 68, 68, 0.75);
+  }
+}
+
+/* ================= MODAL ================= */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 420px;
+  padding: 28px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(28px);
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.9);
+}
+
+.modal h3 {
+  margin-top: 0;
+}
+
+/* ================= AUDIT ================= */
+
+.audit {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 14px 16px;
+  border-radius: 14px;
+  margin-bottom: 10px;
+  border-left: 4px solid #6366f1;
+  font-size: 13px;
+}
+
+/* ================= BANNERS ================= */
+
+.banner {
+  padding: 14px;
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+
+.banner.error {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fecaca;
+}
+
+/* ================= SPINNER ================= */
+
+.spinner {
+  width: 42px;
+  height: 42px;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  border-top: 4px solid #60a5fa;
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+  margin: 40px auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .content {
+    padding: 24px;
+  }
+
+  .analytics {
+    grid-template-columns: 1fr;
+  }
+
+  /* ================= ADMIN LAYOUT ================= */
+
+.admin-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ================= SLA ANALYTICS ================= */
+
+.admin-analytics {
+  display: flex;
+  justify-content: center;
+}
+
+.analytics-card {
+  width: 100%;
+  max-width: 600px;
+  background: rgba(255,255,255,0.05);
+  padding: 32px;
+  border-radius: 24px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+
+.analytics-card h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+/* ================= TICKETS GRID ================= */
+
+.admin-tickets h3 {
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+/* ================= ADMIN TICKET CARD ================= */
+
+.admin-ticket-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 22px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 20px 60px rgba(0,0,0,0.45);
+  transition: transform 0.25s ease;
+}
+
+.admin-ticket-card:hover {
+  transform: translateY(-4px);
+}
+
+.ticket-info h4 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.ticket-meta {
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* ================= ADMIN ACTIONS ================= */
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-actions button {
+  flex: 1;
+  min-width: 90px;
+}
+
+/* ================= DASHBOARD CENTERING ================= */
+
+.dashboard-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* Make panels wide */
+.panel-wide {
+  width: 100%;
+}
+
+/* Improve panel spacing */
+.panel {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 24px;
+  padding: 32px;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 30px 80px rgba(0,0,0,0.5);
+}
+
+
+}
